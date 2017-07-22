@@ -16,7 +16,7 @@ public class Roman {
 		  case 500 : return "D";
 		  case 1000 : return "M";
 		}
-	    return "I";
+	    return "";
 	}
 	
 	public static int romanToInt(String r) {
