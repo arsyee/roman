@@ -26,6 +26,9 @@ public class RomanTest {
 
 	@Test
 	public void testAddition() {
+		assertEquals("II", Roman.intToRoman(2));
+		assertEquals("III", Roman.intToRoman(3));
+		
 		assertEquals("VI", Roman.intToRoman(6));
 		assertEquals("VII", Roman.intToRoman(7));
 		assertEquals("VIII", Roman.intToRoman(8));
