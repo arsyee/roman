@@ -10,7 +10,7 @@ public class RomanTest {
 
 	@Test
 	public void test() {
-		assertEquals(4, Roman.getDouble(2));
+		assertEquals("I", Roman.getDouble(1));
 	}
 
 }
