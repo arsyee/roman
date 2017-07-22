@@ -37,4 +37,9 @@ public class RomanTest {
 		assertEquals("LI", Roman.intToRoman(51));
 		assertEquals("MIII", Roman.intToRoman(1003));
 	}
+	
+	@Test
+	public void test99() {
+		// assertEquals("XCIX", Roman.intToRoman(99)); // apparently this is how to convert, check rules again!
+	}
 }
