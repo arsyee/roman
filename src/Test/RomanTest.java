@@ -9,7 +9,12 @@ import Roman.*;
 public class RomanTest {
 
 	@Test
-	public void test() {
+	public void testZero() {
+		assertEquals("", Roman.intToRoman(0));
+	}
+	
+	@Test
+	public void testSingle() {
 		assertEquals("I", Roman.intToRoman(1));
 		assertEquals("V", Roman.intToRoman(5));
 		assertEquals("X", Roman.intToRoman(10));
