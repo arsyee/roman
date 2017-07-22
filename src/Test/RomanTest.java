@@ -24,4 +24,14 @@ public class RomanTest {
 		assertEquals("M", Roman.intToRoman(1000));
 	}
 
+	@Test
+	public void testAddition() {
+		assertEquals("VI", Roman.intToRoman(6));
+		assertEquals("VII", Roman.intToRoman(7));
+		assertEquals("VIII", Roman.intToRoman(8));
+
+		assertEquals("XII", Roman.intToRoman(12));
+		assertEquals("LI", Roman.intToRoman(51));
+		assertEquals("MIII", Roman.intToRoman(1003));
+	}
 }
