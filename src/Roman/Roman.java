@@ -10,5 +10,7 @@ public class Roman {
 		return "I";
 	}
 	
-	
+	public static int romanToInt(String r) {
+		return 0;
+	}
 }
