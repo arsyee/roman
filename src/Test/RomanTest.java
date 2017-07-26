@@ -42,4 +42,20 @@ public class RomanTest {
 	public void test99() {
 		// assertEquals("XCIX", Roman.intToRoman(99)); // apparently this is how to convert, check rules again!
 	}
+	
+	@Test
+	public void testAll() {
+		fail(); // write a test, which iterates over all the possibilities and checks if the result is the same after double-conversion
+	}
+	
+	@Test
+	public void testErrorHandling() {
+		fail(); // please implement error handling (i.e. create tests with erroneous data), examples:
+				// * negative numbers
+				// * higher than MAX value
+				// * wrong order in roman numbers, i.e. IC, IIX, etc.
+				// * two many characters in roman numbers, like MMMM or VV
+				// * unknown character in roman numbers, like CXXXSI
+				// * anything else you might think of
+	}
 }
