@@ -71,7 +71,11 @@ public class RomanTest {
 	
 	@Test
 	public void testRomanZero() {
-		assertEquals(0, Roman.romanToInt(""));
+		try {
+			assertEquals(0, Roman.romanToInt(""));
+		} catch (Exception e) {
+			fail();
+		}
 	}
 	
 	@Test
@@ -136,17 +140,26 @@ public class RomanTest {
 	public ExpectedException thrown = ExpectedException.none();
 	
 	@Test
-	public void testErrorHandling() throws Exception {
+	public void testNegative() throws Exception {
 		thrown.expect(Roman.Exception.class);
 		thrown.expectMessage(is("Negative number"));
-			Roman.intToRoman(-1);
-			
+		Roman.intToRoman(-1);
+	
 		        // please implement error handling (i.e. create tests with erroneous data), examples:
-				// * negative numbers
 				// * higher than MAX value
 				// * wrong order in roman numbers, i.e. IC, IIX, etc.
 				// * two many characters in roman numbers, like MMMM or VV
 				// * unknown character in roman numbers, like CXXXSI
 				// * anything else you might think of
+	}
+	
+	
+	
+	@Test
+	public void testUnknown() throws Exception {
+		thrown.expect(Roman.Exception.class);
+		thrown.expectMessage(is("Unknown character: B"));
+		Roman.romanToInt("CXB");
+		
 	}
 }

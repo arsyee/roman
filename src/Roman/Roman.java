@@ -44,7 +44,7 @@ public class Roman {
 		}
 	}
 	
-	public static int romanToInt(String r) {
+	public static int romanToInt(String r) throws Exception {
 		int number = 0;
 		int nr =0;
 		int lastNr =0;
@@ -59,7 +59,7 @@ public class Roman {
 		    case 'D' : nr = 500; break;
 		    case 'M' : nr = 1000; break;
 		    
-		    default : nr = 0; break;
+		    default : throw new Exception("Unknown character: "+r.charAt(i));
 		  }
 		  
 		  if (lastNr<nr) {
