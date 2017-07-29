@@ -16,6 +16,7 @@ public class Roman {
 
 	public static String intToRoman(int number) throws Exception {
 		if (number<0) throw new Exception("Negative number");
+		if (number>=4000) throw new Exception("Higher than maximum value");
 		StringBuilder roman = new StringBuilder();
 
 		String[] Is = {"I", "X", "C", "M", ""};

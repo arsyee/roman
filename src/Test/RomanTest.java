@@ -146,14 +146,18 @@ public class RomanTest {
 		Roman.intToRoman(-1);
 	
 		        // please implement error handling (i.e. create tests with erroneous data), examples:
-				// * higher than MAX value
 				// * wrong order in roman numbers, i.e. IC, IIX, etc.
 				// * two many characters in roman numbers, like MMMM or VV
-				// * unknown character in roman numbers, like CXXXSI
 				// * anything else you might think of
 	}
 	
-	
+	@Test
+	public void testHigherThanMax() throws Exception {
+		thrown.expect(Roman.Exception.class);
+		thrown.expectMessage(is("Higher than maximum value"));
+		Roman.intToRoman(4000);
+			
+	}
 	
 	@Test
 	public void testUnknown() throws Exception {
