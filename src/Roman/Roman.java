@@ -5,13 +5,21 @@ public class Roman {
 	public static void main(String[] args) {
 		System.out.println("Hello World!");
 	}
+	
+	public static class Exception extends Throwable {
+		private static final long serialVersionUID = 1L;
 
-	public static String intToRoman(int number) {
+		Exception (String s) {
+			super(s);
+		}
+	}
+
+	public static String intToRoman(int number) throws Exception {
+		if (number<0) throw new Exception("Negative number");
 		StringBuilder roman = new StringBuilder();
 
 		String[] Is = {"I", "X", "C", "M", ""};
 		String[] Vs = {"V", "L", "D", "", ""};
-		
 	    for (int i = 0; i < 4; ++i) {
 	    	int digit = number%10;
 		    roman.insert(0, convertDigit(digit, Is[i], Vs[i], Is[i+1]));
