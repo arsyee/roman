@@ -193,4 +193,25 @@ public class RomanTest {
 		thrown.expectMessage(is("Wrong number"));
 		Roman.romanToInt("XIIV");		
 	}
+
+	@Test
+	public void testFails1() throws Exception {
+		thrown.expect(Roman.Exception.class);
+		// thrown.expectMessage(is("")); // message to be specified
+		System.out.println("IC is "+Roman.romanToInt("IC"));
+	}
+	
+	@Test
+	public void testFails2() throws Exception {
+		thrown.expect(Roman.Exception.class);
+		// thrown.expectMessage(is("")); // message to be specified
+		System.out.println("VD is "+Roman.romanToInt("VD"));
+	}
+	
+	@Test
+	public void testFails3() throws Exception {
+		thrown.expect(Roman.Exception.class);
+		// thrown.expectMessage(is("")); // message to be specified
+		System.out.println("VID is "+Roman.romanToInt("VID"));
+	}
 }
