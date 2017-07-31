@@ -46,30 +46,46 @@ public class Roman {
 	}
 	
 	public static int romanToInt(String r) throws Exception {
-		int number = 0;
-		int nr =0;
-		int lastNr =0;
-		System.out.println(r+" length: "+r.length());
-		for (int i=0;i<r.length();i++) {
+		int solution = 0;
+		int current = 0;
+		int previous = 0;		
+		int counter = 1;
+		
+		for (int i=0; i<r.length(); i++) {
 		  switch (r.charAt(i)) {
-		    case 'I' : nr = 1; break;
-		    case 'V' : nr = 5; break;
-		    case 'X' : nr = 10; break;
-		    case 'L' : nr = 50; break;
-		    case 'C' : nr = 100; break;
-		    case 'D' : nr = 500; break;
-		    case 'M' : nr = 1000; break;
+		    case 'I' : current = 1; break;
+		    case 'V' : current = 5; break;
+		    case 'X' : current = 10; break;
+		    case 'L' : current = 50; break;
+		    case 'C' : current = 100; break;
+		    case 'D' : current = 500; break;
+		    case 'M' : current = 1000; break;
 		    
 		    default : throw new Exception("Unknown character: "+r.charAt(i));
 		  }
 		  
-		  if (lastNr<nr) {
-			number += -2*lastNr;
+		  if (previous<current) {
+			solution += -2*previous;
+			if (counter>1) {
+				throw new Exception("Wrong number");
+			}
 		  }
-		  lastNr = nr;
-		  number += nr;
+		  		  
+		  if (previous == current) {
+			  counter++;
+			  if (current == 5 || current == 50 || current == 500) {
+				  throw new Exception("Too many same characters");
+			  } 
+		  } else {
+			  counter = 1;
+		  }
+		  if (counter > 3) {
+			  throw new Exception("Too many same characters");
+		  }
+		  previous = current;
+		  solution += current;
 		}
-		System.out.println(number);
-		return number;
+
+		return solution;
 	}
 }

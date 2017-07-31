@@ -147,7 +147,6 @@ public class RomanTest {
 	
 		        // please implement error handling (i.e. create tests with erroneous data), examples:
 				// * wrong order in roman numbers, i.e. IC, IIX, etc.
-				// * two many characters in roman numbers, like MMMM or VV
 				// * anything else you might think of
 	}
 	
@@ -165,5 +164,33 @@ public class RomanTest {
 		thrown.expectMessage(is("Unknown character: B"));
 		Roman.romanToInt("CXB");
 		
+	}
+	
+	@Test
+	public void testMoreSameM() throws Exception {
+		thrown.expect(Roman.Exception.class);
+		thrown.expectMessage(is("Too many same characters"));
+		Roman.romanToInt("MMMM");
+	}
+	
+	@Test
+	public void testMoreSameC() throws Exception {
+		thrown.expect(Roman.Exception.class);
+		thrown.expectMessage(is("Too many same characters"));
+		Roman.romanToInt("MCCCCCIV");
+	}
+	
+	@Test
+	public void testMoreSameV() throws Exception {
+		thrown.expect(Roman.Exception.class);
+		thrown.expectMessage(is("Too many same characters"));
+		Roman.romanToInt("XVVVI");
+	}
+	
+	@Test
+	public void testWrongNumber() throws Exception {
+		thrown.expect(Roman.Exception.class);
+		thrown.expectMessage(is("Wrong number"));
+		Roman.romanToInt("XIIV");		
 	}
 }
