@@ -121,6 +121,7 @@ public class RomanTest {
 			assertEquals(2009, Roman.romanToInt(Roman.intToRoman(2009)));
 			assertEquals(3899, Roman.romanToInt(Roman.intToRoman(3899)));
 		} catch (Exception e) {
+			System.out.println(e.toString());
 			fail();
 		}
 	}
@@ -144,10 +145,6 @@ public class RomanTest {
 		thrown.expect(Roman.Exception.class);
 		thrown.expectMessage(is("Negative number"));
 		Roman.intToRoman(-1);
-	
-		        // please implement error handling (i.e. create tests with erroneous data), examples:
-				// * wrong order in roman numbers, i.e. IC, IIX, etc.
-				// * anything else you might think of
 	}
 	
 	@Test
@@ -167,51 +164,51 @@ public class RomanTest {
 	}
 	
 	@Test
-	public void testMoreSameM() throws Exception {
+	public void testMultipleM() throws Exception {
 		thrown.expect(Roman.Exception.class);
-		thrown.expectMessage(is("Too many same characters"));
+		thrown.expectMessage(is("Too many characters: M"));
 		Roman.romanToInt("MMMM");
 	}
 	
 	@Test
-	public void testMoreSameC() throws Exception {
+	public void testMultipleC() throws Exception {
 		thrown.expect(Roman.Exception.class);
-		thrown.expectMessage(is("Too many same characters"));
+		thrown.expectMessage(is("Too many characters: C"));
 		Roman.romanToInt("MCCCCCIV");
 	}
 	
 	@Test
-	public void testMoreSameV() throws Exception {
+	public void testMultipleV() throws Exception {
 		thrown.expect(Roman.Exception.class);
-		thrown.expectMessage(is("Too many same characters"));
+		thrown.expectMessage(is("Too many characters: V"));
 		Roman.romanToInt("XVVVI");
 	}
 	
 	@Test
-	public void testWrongNumber() throws Exception {
+	public void testMultipleSubstract() throws Exception {
 		thrown.expect(Roman.Exception.class);
-		thrown.expectMessage(is("Wrong number"));
+		thrown.expectMessage(is("Cannot substract multiple times: 1"));
 		Roman.romanToInt("XIIV");		
 	}
 
 	@Test
-	public void testFails1() throws Exception {
+	public void testSubstractFails1() throws Exception {
 		thrown.expect(Roman.Exception.class);
-		// thrown.expectMessage(is("")); // message to be specified
+		thrown.expectMessage(is("Cannot substract 1 from 100"));
 		System.out.println("IC is "+Roman.romanToInt("IC"));
 	}
 	
 	@Test
-	public void testFails2() throws Exception {
+	public void testSubsrtactFails2() throws Exception {
 		thrown.expect(Roman.Exception.class);
-		// thrown.expectMessage(is("")); // message to be specified
+		thrown.expectMessage(is("Cannot substract 5 from 500"));
 		System.out.println("VD is "+Roman.romanToInt("VD"));
 	}
 	
 	@Test
-	public void testFails3() throws Exception {
+	public void testSubstractFails3() throws Exception {
 		thrown.expect(Roman.Exception.class);
-		// thrown.expectMessage(is("")); // message to be specified
+		thrown.expectMessage(is("Cannot substract 1 from 500"));
 		System.out.println("VID is "+Roman.romanToInt("VID"));
 	}
 }

@@ -64,23 +64,29 @@ public class Roman {
 		    default : throw new Exception("Unknown character: "+r.charAt(i));
 		  }
 		  
-		  if (previous<current) {
-			solution += -2*previous;
+		  if (previous>0 && previous<current) {
+			if (((current == 1000 || current == 500) && previous == 100) ||
+			   ((current == 100 || current == 50) && previous == 10) ||
+			   ((current == 10 || current == 5) && previous == 1)) {
+				solution += -2*previous;
+			} else {
+				throw new Exception("Cannot substract "+previous+" from "+current);
+			}
 			if (counter>1) {
-				throw new Exception("Wrong number");
+				throw new Exception("Cannot substract multiple times: "+previous);
 			}
 		  }
 		  		  
 		  if (previous == current) {
 			  counter++;
 			  if (current == 5 || current == 50 || current == 500) {
-				  throw new Exception("Too many same characters");
+				  throw new Exception("Too many characters: "+r.charAt(i));
 			  } 
 		  } else {
 			  counter = 1;
 		  }
 		  if (counter > 3) {
-			  throw new Exception("Too many same characters");
+			  throw new Exception("Too many characters: "+r.charAt(i));
 		  }
 		  previous = current;
 		  solution += current;
