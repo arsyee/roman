@@ -128,7 +128,7 @@ public class RomanTest {
 	
 	@Test
 	public void testRomanAll() {
-		for (int i=0; i<4000; i++) {
+		for (int i=0; i<Roman.MAX; i++) {
 			try {
 				assertEquals(i, Roman.romanToInt(Roman.intToRoman(i)));
 			} catch (Exception e) {
@@ -143,14 +143,14 @@ public class RomanTest {
 	@Test
 	public void testNegative() throws Exception {
 		thrown.expect(Roman.Exception.class);
-		thrown.expectMessage(is("Negative number"));
+		thrown.expectMessage(is("Negative number: -1"));
 		Roman.intToRoman(-1);
 	}
 	
 	@Test
 	public void testHigherThanMax() throws Exception {
 		thrown.expect(Roman.Exception.class);
-		thrown.expectMessage(is("Higher than maximum value"));
+		thrown.expectMessage(is("Higher than maximum (3999) value: 4000"));
 		Roman.intToRoman(4000);
 			
 	}
